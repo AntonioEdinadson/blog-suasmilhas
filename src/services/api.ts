@@ -1,0 +1,88 @@
+const Services = {
+    GetPosts: () => {
+        return [
+            {
+                title: "Viagem chegando? Abra sua conta na Nomad e economize dinheiro em 54 países e Territórios dos EUA",
+                img: "https://passageirodeprimeira.com/wp-content/uploads/2021/08/passageirodeprimeira.com-conheca-a-nomad-uma-conta-corrente-digital-e-gratuita-nos-estados-unidos-nomad-2-1.png",
+                label: "Promoções",
+            },
+            {
+                title: "Serviço de tags de pedágio do Itaú será gratuito para todos os correntistas",
+                img: "https://passageirodeprimeira.com/wp-content/uploads/2021/09/passageirodeprimeira.com-itau-lanca-tag-de-pedagios-e-estacionamentos-sem-mensalidade-para-todos-os-clientes-do-banco-tag-itau-connect-car.png",
+                label: "Promoções",
+            },
+            {
+                title: "Rappi e Visa sorteiam três pacotes para a Copa do Mundo e vouchers semanais de 1 mil reais",
+                img: "https://passageirodeprimeira.com/wp-content/uploads/2022/07/passageirodeprimeira.com-xp-e-visa-vao-sortear-pacotes-de-viagem-para-a-copa-do-mundo-e-premios-mensais-de-r10-mil-rappi-visa.jpg",
+                label: "Cartões de Crédito",
+            },
+            {
+                title: "Corre! Clube TudoAzul por R$15 por mês durante um ano",
+                img: "https://passageirodeprimeira.com/wp-content/uploads/2021/05/passageirodeprimeira.com-tudoazul-oferece-30-de-desconto-nos-3-primeiros-meses-do-clube-tudoazul-tudoazul.png",
+                label: "Programas de Fidelidade",
+            },
+            {
+                title: "Aeroporto de Brasília inaugura loja com produtos de marca própria",
+                img: "https://passageirodeprimeira.com/wp-content/uploads/2022/07/passageirodeprimeira.com-aeroporto-de-brasilia-abre-loja-com-produtos-de-marca-propria-design-sem-nome-91.jpg",
+                label: "Nóticias",
+            },         
+            {
+                title: "Rappi e Visa sorteiam três pacotes para a Copa do Mundo e vouchers semanais de 1 mil reais",
+                img: "https://passageirodeprimeira.com/wp-content/uploads/2022/07/passageirodeprimeira.com-xp-e-visa-vao-sortear-pacotes-de-viagem-para-a-copa-do-mundo-e-premios-mensais-de-r10-mil-rappi-visa.jpg",
+                label: "Cartões de Crédito",
+            },
+            {
+                title: "Corre! Clube TudoAzul por R$15 por mês durante um ano",
+                img: "https://passageirodeprimeira.com/wp-content/uploads/2021/05/passageirodeprimeira.com-tudoazul-oferece-30-de-desconto-nos-3-primeiros-meses-do-clube-tudoazul-tudoazul.png",
+                label: "Programas de Fidelidade",
+            },
+            {
+                title: "TudoAzul oferece até 10 pontos por real gasto no Extra",
+                img: "https://www.extra-imagens.com.br/HotSite/2022/B2B/Acumulo/B2B_TudoAzul/10x1/07-Julho/12.07%20-%2016.07/11-TA-10x1-Desk.jpg",
+                label: "Programas de Fidelidade",
+            },
+            {
+                title: "Aeroportos de Guarulhos e Viracopos têm taxas reajustadas em quase 14%",
+                img: "https://passageirodeprimeira.com/wp-content/uploads/2022/01/passageirodeprimeira.com-embarque-e-desembarque-internacionais-da-gol-voltam-ao-terminal-2-de-guarulhos-terminal-2-guarulhos-gru.jpg",
+                label: "Nóticias",
+            },
+            {
+                title: "Nova campanha do Bradesco oferece isenção de anuidade de cartões por tempo indeterminado sem gasto mínimo mensal",
+                img: "https://passageirodeprimeira.com/wp-content/uploads/2021/07/passageirodeprimeira.com-promocao-do-bradesco-oferece-isencao-de-anuidade-por-tempo-indeterminado-em-cartoes-de-credito-bradesco-tpc-the-platinum-card.png",
+                label: "Cartões de Crédito",
+            },
+            {
+                title: "Nomad oferece Priority Pass aos 200 primeiros que investirem na plataforma",
+                img: "https://passageirodeprimeira.com/wp-content/uploads/2022/07/passageirodeprimeira.com-pp-11-anos-nomad-oferece-priority-pass-aos-200-primeiros-que-investirem-na-plataforma-design-sem-nome31.png",
+                label: "Nóticias",
+            },
+            {
+                title: "Nomad oferece Priority Pass aos 200 primeiros que investirem na plataforma",
+                img: "https://passageirodeprimeira.com/wp-content/uploads/2022/07/passageirodeprimeira.com-pp-11-anos-nomad-oferece-priority-pass-aos-200-primeiros-que-investirem-na-plataforma-design-sem-nome31.png",
+                label: "Nóticias",
+            },
+            {
+                title: "Nomad oferece Priority Pass aos 200 primeiros que investirem na plataforma",
+                img: "https://passageirodeprimeira.com/wp-content/uploads/2022/07/passageirodeprimeira.com-pp-11-anos-nomad-oferece-priority-pass-aos-200-primeiros-que-investirem-na-plataforma-design-sem-nome31.png",
+                label: "Nóticias",
+            },
+            {
+                title: "Nomad oferece Priority Pass aos 200 primeiros que investirem na plataforma",
+                img: "https://passageirodeprimeira.com/wp-content/uploads/2022/07/passageirodeprimeira.com-pp-11-anos-nomad-oferece-priority-pass-aos-200-primeiros-que-investirem-na-plataforma-design-sem-nome31.png",
+                label: "Nóticias",
+            },
+            {
+                title: "Nomad oferece Priority Pass aos 200 primeiros que investirem na plataforma",
+                img: "https://passageirodeprimeira.com/wp-content/uploads/2022/07/passageirodeprimeira.com-pp-11-anos-nomad-oferece-priority-pass-aos-200-primeiros-que-investirem-na-plataforma-design-sem-nome31.png",
+                label: "Nóticias",
+            },            
+
+        ]
+    },
+
+    GetQuotes: () => {
+
+    }
+}
+
+export default Services;

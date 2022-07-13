@@ -11,3 +11,26 @@ body {
     padding: 0;
     box-sizing: border-box;
 }
+
+.swiper-wrapper {
+    overflow: visible;
+}
+
+.swiper-pagination {
+    position: absolute;    
+    z-index: 10;
+    display: flex;
+    justify-content: flex-end;
+    bottom: 0 !important;
+    width: 100% !important;
+    margin-top: 2rem !important;        
+}
+
+.swiper-pagination  span {
+    background-color: #03d76c;
+}
+
+.swiper-pagination-bullet-active {
+width: 20px !important;
+border-radius: 10px !important;
+}

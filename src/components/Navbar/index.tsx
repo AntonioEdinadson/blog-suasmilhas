@@ -26,9 +26,9 @@ export const Navbar = () => {
     }
 
     return (
-        <nav className="w-full" id="navbar">
-            <section className="fixed w-full py-5 z-10">
-                <div className="mSM:w-[95%] w-[80%] flex items-center justify-between mx-auto">
+        <nav className="w-full h-[80px] py-4 border-b pb-5 border-[#313131]">
+            <section className="fixed w-full z-10">
+                <div className="mSM:w-[95%] w-[75%] flex items-center justify-between mx-auto">
                     <div>
                         <div className="text-white flex items-center gap-2" onClick={() => setOpenNav(!openNav)} >
                             <IoMenu className="text-[1.8rem] cursor-pointer" />
@@ -52,7 +52,7 @@ export const Navbar = () => {
 
             < div className={`fixed w-full h-full top-0 z-20 bg-black bg-opacity-25  transition-opacity duration-[5s] ease-in  ${openNav || openSearch ? 'animate-menu-open-bg' : 'hidden'}`} onClick={closeNav}></div>
 
-            <section id='menu' className={`absolute z-20 top-0 w-[350px] max-w-[70%] h-full bg-[#202020] transition-all duration-500 ease-in ${openNav ? 'translate-x-0' : 'translate-x-[-100%]'} `}>
+            <section id='menu' className={`absolute z-20 top-0 w-[350px] max-w-[75%] h-full bg-[#202020] transition-all duration-500 ease-in ${openNav ? 'translate-x-0' : 'translate-x-[-100%]'} `}>
                 <ul className="relative h-full flex flex-col gap-5 px-5 py-[5rem] text-[#BBB] text-[1.1rem]">
                     <li><Link to="">Simulador de Compras</Link></li>
                     <li><Link to="">Promoções</Link></li>
