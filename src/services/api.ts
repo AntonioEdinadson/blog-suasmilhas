@@ -13,7 +13,7 @@ const Services = {
             },
             {
                 title: "Rappi e Visa sorteiam três pacotes para a Copa do Mundo e vouchers semanais de 1 mil reais",
-                img: "https://passageirodeprimeira.com/wp-content/uploads/2022/07/passageirodeprimeira.com-xp-e-visa-vao-sortear-pacotes-de-viagem-para-a-copa-do-mundo-e-premios-mensais-de-r10-mil-rappi-visa.jpg",
+                img: "https://files.tecnoblog.net/wp-content/uploads/2021/01/rappibank-e1610052421781.png",
                 label: "Cartões de Crédito",
             },
             {
@@ -28,7 +28,7 @@ const Services = {
             },         
             {
                 title: "Rappi e Visa sorteiam três pacotes para a Copa do Mundo e vouchers semanais de 1 mil reais",
-                img: "https://passageirodeprimeira.com/wp-content/uploads/2022/07/passageirodeprimeira.com-xp-e-visa-vao-sortear-pacotes-de-viagem-para-a-copa-do-mundo-e-premios-mensais-de-r10-mil-rappi-visa.jpg",
+                img: "https://files.tecnoblog.net/wp-content/uploads/2021/01/rappibank-e1610052421781.png",
                 label: "Cartões de Crédito",
             },
             {

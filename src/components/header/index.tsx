@@ -42,38 +42,38 @@ export const Header = () => {
 
     return (
         <div className="w-full">
-            <div className="max-w-[1600px] w-[75%] mx-auto mt-[2rem] bg-red border-b pb-5 border-[#313131]">
+            <div className="max-w-[1600px] mSM:w-[95%] w-[70%] mx-auto mt-[1rem] bg-red border-b pb-5 border-[#313131]">
                 <div className="flex gap-10">
                     <Swiper
                         pagination={{ clickable: true }}
-                        autoplay={{ delay: 3000, disableOnInteraction: false }}
+                        autoplay={{ delay: 5000, disableOnInteraction: false }}
                         modules={[Pagination, Autoplay]}
                         className="mySwiper"
                     >
 
                         {chuckPosts.map((post: IPost[], index: number) => (
-                            <SwiperSlide className="flex gap-8 pb-5">
+                            <SwiperSlide className="flex gap-8 pb-5" key={index}>
 
-                                <section className="mXL:w-[100%] w-[50%] h-[500px] flex flex-col justify-between">
-                                    <div className="w-full h-[75%] overflow-hidden rounded-xl">
+                                <section className="mXL:w-[100%] w-[60%] h-[500px] flex flex-col justify-between">
+                                    <div className="w-full mSM:h-[70%] h-[75%] overflow-hidden rounded-xl">
                                         <Link to=""><img className="w-full h-full object-cover" src={post[0].img} alt="" /></Link>
                                     </div>
-                                    <div className="w-full h-[25%]">
+                                    <div className="w-full mSM:h-[30%] h-[25%]">
                                         <h2 className="text-[#BBB] py-2">10/07/2022 - há 2 dias</h2>
-                                        <Link to=""><h1 className="pb-5 text-[2rem] leading-[2rem] text-white font-medium hover:text-[#02d96d]">{post[0].title}</h1></Link>
+                                        <Link to=""><h1 className="pb-5 mSM:text-[1.5rem] text-[2rem] mSM:leading-[1.8rem] leading-[2rem] text-white font-medium hover:text-[#02d96d]">{post[0].title}</h1></Link>
                                     </div>
                                 </section>
 
-                                <div className="mXL:hidden w-[50%] flex flex-col justify-between">
+                                <div className="mXL:hidden w-[40%] flex flex-col justify-between">
                                     {post.slice(1).map((post: IPost, index: number) => (
-                                        <section className="flex justify-between">
+                                        <section className="flex justify-between" key={index}>
                                             <div className="w-full flex items-center gap-6 justify-center">
-                                                <div className="w-[25%] h-[7rem] overflow-hidden rounded-xl">
+                                                <div className="w-[30%] h-[7rem] overflow-hidden rounded-xl">
                                                     <Link to=""><img className="w-full h-full object-cover" src={post.img} /></Link>
                                                 </div>
-                                                <div className="w-[75%]">
+                                                <div className="w-[70%]">
                                                     <h2 className="text-[#02d96d] py-1  font-medium">{post.label}</h2>
-                                                    <Link to=""><h1 className="text-[1.4rem] leading-[1.4rem] text-white font-medium hover:text-[#02d96d]">{post.title}</h1></Link>
+                                                    <Link to=""><h1 className="text-[1rem] leading-[1.4rem] text-white font-medium hover:text-[#02d96d]">{post.title}</h1></Link>
                                                 </div>
                                             </div>
                                         </section>

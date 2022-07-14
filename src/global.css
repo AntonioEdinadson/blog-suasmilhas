@@ -34,3 +34,9 @@ body {
 width: 20px !important;
 border-radius: 10px !important;
 }
+
+.swiper-button-prev, 
+.swiper-button-next, 
+.swiper-rtl {
+color: #00e170 !important;
+}
