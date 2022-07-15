@@ -8,12 +8,7 @@ import { Pagination, Autoplay, Navigation } from "swiper";
 
 import "swiper/css";
 import "swiper/css/pagination";
-
-interface IPost {
-    title: string;
-    label: string;
-    img: string;
-}
+import { IPost } from "../../types/IPost";
 
 const chunkPosts = (array: IPost[]) => {
     return array.reduce((acc: any, _, index) => {
@@ -42,7 +37,7 @@ export const Header = () => {
 
     return (
         <div className="w-full">
-            <div className="max-w-[1600px] mSM:w-[95%] mmSD:w-[80%] w-[70%] mx-auto mt-[1rem] bg-red border-b pb-5 border-[#313131]">
+            <div className="max-w-[1600px] mSM:w-[95%] mmSD:w-[80%] w-[70%] mx-auto mt-[2rem] border-b pb-5 border-[#CECECE]">
                 <div className="flex gap-10">
                     <Swiper
                         pagination={{ clickable: true }}
@@ -61,7 +56,7 @@ export const Header = () => {
                                     </div>
                                     <div className="w-full mSM:h-[30%] h-[25%]">
                                         <h2 className="text-[#BBB] py-2">10/07/2022 - há 2 dias</h2>
-                                        <Link to=""><h1 className="pb-5 mSM:text-[1.5rem] text-[2rem] mSM:leading-[1.8rem] leading-[2rem] text-white font-medium hover:text-[#02d96d]">{post[0].title}</h1></Link>
+                                        <Link to=""><h1 className="pb-5 mSM:text-[1.5rem] text-[2rem] mSM:leading-[1.8rem] leading-[2rem] text-[#262626] font-medium hover:text-[#02d96d]">{post[0].title}</h1></Link>
                                     </div>
                                 </section>
 
@@ -74,7 +69,7 @@ export const Header = () => {
                                                 </div>
                                                 <div className="w-[70%]">
                                                     <h2 className="text-[#02d96d] py-1  font-medium">{post.label}</h2>
-                                                    <Link to=""><h1 className="text-[1rem] leading-[1.4rem] text-white font-medium hover:text-[#02d96d]">{post.title}</h1></Link>
+                                                    <Link to=""><h1 className="text-[1.2rem] leading-[1.4rem] text-[#262626] font-medium hover:text-[#02d96d]">{post.title}</h1></Link>                                                    
                                                 </div>
                                             </div>
                                         </section>

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-    background-color: #262626;
+    background-color: #FFF;
 }
 
 * {
@@ -27,7 +27,7 @@ body {
 }
 
 .swiper-pagination  span {
-    background-color: #03d76c;
+    background-color: #262626;
 }
 
 .swiper-pagination-bullet-active {

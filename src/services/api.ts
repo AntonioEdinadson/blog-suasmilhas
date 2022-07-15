@@ -3,6 +3,7 @@ const Services = {
         return [
             {
                 title: "Viagem chegando? Abra sua conta na Nomad e economize dinheiro em 54 países e Territórios dos EUA",
+                subTitle: "Aeroportos de Guarulhos e Viracopos têm taxas reajustadas em quase 14%",
                 img: "https://passageirodeprimeira.com/wp-content/uploads/2021/08/passageirodeprimeira.com-conheca-a-nomad-uma-conta-corrente-digital-e-gratuita-nos-estados-unidos-nomad-2-1.png",
                 label: "Promoções",
             },

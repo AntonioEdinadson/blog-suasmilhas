@@ -26,8 +26,8 @@ export const Navbar = () => {
     }
 
     return (
-        <nav className="w-full h-[80px] border-b pb-5 border-[#313131]">
-            <section className="fixed w-full h-[80px] z-10 flex bg-[#262626]">
+        <nav className="w-full h-[60px] border-b border-[#313131]">
+            <section className="fixed w-full h-[60px] z-10 flex bg-[#262626]">
                 <div className="mSM:w-[95%] mmSD:w-[80%] w-[70%] flex items-center justify-between mx-auto">
                     <div>
                         <div className="text-white flex items-center gap-2" onClick={() => setOpenNav(!openNav)} >
@@ -36,7 +36,7 @@ export const Navbar = () => {
                         </div>
                     </div>
 
-                    <div className="w-[220px] z-9999 mSM:w-[165px]">
+                    <div className="w-[200px] z-9999 mSM:w-[165px]">
                         <div>
                             <Link to='/'><img src={logo} alt="logo-suasmilhas" /></Link>
                         </div>

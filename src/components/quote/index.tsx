@@ -57,13 +57,13 @@ export const Quotes = () => {
     };
 
     return (
-        <div className="w-full bg-zinc-800 py-2">
+        <div className="w-full bg-[#262626] py-2">
             <div className="mSM:w-[95%] mmSD:w-[80%] w-[70%] max-w-[1680px] mx-auto flex items-center  justify-between gap-2 animate-pulse overflow-auto">
                 <p className="text-[#00e170] font-medium">HOTMILHAS</p>
 
                 {data.hotmilhas.map((quote, index) => (
                     <div className="text-[#FFF] flex items-center gap-5" key={index}>
-                        <p className="font-medium">{quote.name.toUpperCase()}</p>                        
+                        <p className="font-medium">{quote.name.toUpperCase()}</p>
 
                         {quote.quotes.map((value, index) => (
                             <div className="text-[#BBB]" key={index}>
