@@ -20,9 +20,10 @@ module.exports = {
 
     screens: {
       'mSM': { 'max': '680px' },
-      'mMD': { 'max': '768px' },
+      'mMD': { 'max': '768px', },
       'mLG': { 'max': '1024px' },
       'mXL': { 'max': '1280px' },
+      'mmSD': { 'min': '681px', 'max': '1512px' },  
     }
   },
   plugins: [],

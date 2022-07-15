@@ -42,10 +42,11 @@ export const Header = () => {
 
     return (
         <div className="w-full">
-            <div className="max-w-[1600px] mSM:w-[95%] w-[70%] mx-auto mt-[1rem] bg-red border-b pb-5 border-[#313131]">
+            <div className="max-w-[1600px] mSM:w-[95%] mmSD:w-[80%] w-[70%] mx-auto mt-[1rem] bg-red border-b pb-5 border-[#313131]">
                 <div className="flex gap-10">
                     <Swiper
                         pagination={{ clickable: true }}
+                        spaceBetween={30}
                         autoplay={{ delay: 5000, disableOnInteraction: false }}
                         modules={[Pagination, Autoplay]}
                         className="mySwiper"
@@ -56,7 +57,7 @@ export const Header = () => {
 
                                 <section className="mXL:w-[100%] w-[60%] h-[500px] flex flex-col justify-between">
                                     <div className="w-full mSM:h-[70%] h-[75%] overflow-hidden rounded-xl">
-                                        <Link to=""><img className="w-full h-full object-cover" src={post[0].img} alt="" /></Link>
+                                        <Link to=""><img className="w-full h-full object-cover hover:scale-125" src={post[0].img} alt="" /></Link>
                                     </div>
                                     <div className="w-full mSM:h-[30%] h-[25%]">
                                         <h2 className="text-[#BBB] py-2">10/07/2022 - há 2 dias</h2>
@@ -69,7 +70,7 @@ export const Header = () => {
                                         <section className="flex justify-between" key={index}>
                                             <div className="w-full flex items-center gap-6 justify-center">
                                                 <div className="w-[30%] h-[7rem] overflow-hidden rounded-xl">
-                                                    <Link to=""><img className="w-full h-full object-cover" src={post.img} /></Link>
+                                                    <Link to=""><img className="w-full h-full object-cover hover:scale-125" src={post.img} /></Link>
                                                 </div>
                                                 <div className="w-[70%]">
                                                     <h2 className="text-[#02d96d] py-1  font-medium">{post.label}</h2>
