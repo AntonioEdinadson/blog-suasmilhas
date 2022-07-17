@@ -47,7 +47,7 @@ export const Home = () => {
             <Navbar />
             <Quotes />
             <Header />
-            <main className="mSM:w-[95%] mmSD:w-[80%] w-[70%] mx-auto my-[2rem]">
+            <main className="mmMD:w-[85%] mSM:w-[95%] mmSD:w-[80%] max-w-[1680px]  w-[70%] mx-auto my-[2rem]">
                 <div className="w-full h-full border-b border-[#CECECE] pb-[1.5rem]">
                     <Announcement />
                 </div>
@@ -59,26 +59,26 @@ export const Home = () => {
                         </div>
                     </div>
                 </section>
-                <div className="mSM:flex-col w-full flex items-start mmSD:gap-[1rem] gap-[2rem]">
-                    <div className="mSM:w-full w-[70%]">
+                <div className="mmMD:flex-col mSM:flex-col w-full flex items-start mmSD:gap-[1rem] gap-[2rem]">
+                    <div className="mmMD:w-[100%] mSM:w-full w-[70%]">
                         <h2 className="text-[1.5rem] text-[#262626]"><span className="font-medium  text-[#00e170]">últimos</span> postagens</h2>
                         <div className="w-full flex flex-col gap-[2rem] py-[2rem]">
                             {posts.map((post: IPost, index: number) => (
-                                <Post img={post.img} label={post.label} title={post.title} key={index} />
+                                <Post img={post.img} label={post.label} title={post.title} subTitle={post.subTitle} key={index} />
                             ))}
                         </div>
                         <div className="w-full flex justify-end">
-                            <button className="text-[#262626] px-5 py-2 border font-medium rounded">ver mais postagens</button>
+                            <Link to="" className="w-full flex justify-center"><button className="w-full text-[#838383] px-10 py-2 border-2 rounded">ver mais postagens</button></Link>
                         </div>
                     </div>
-                    <aside className="mSM:w-full w-[30%]">
+                    <aside className="mmMD:w-[100%] mSM:w-full w-[30%] sticky top-0 flex flex-col justify-between">
                         <div className="w-full h-[600px] pb-6">
                             <Announcement />
                         </div>
                         <div className="w-full">
                             <h2 className="text-[1.5rem] text-[#262626]"><span className="font-medium  text-[#00e170]">mais</span> populares</h2>
                             <div className="w-full flex flex-col gap-[1rem] py-[2rem]">
-                                {popularPosts.slice(4, 9).map((post: IPost, index: number) => (
+                                {popularPosts.slice(1, 9).map((post: IPost, index: number) => (
                                     <PopularPost img={post.img} title={post.title} key={index} />
                                 ))}
                             </div>
@@ -94,10 +94,21 @@ export const Home = () => {
                                 ))}
                             </div>
                         </div>
-                        <div className="w-full h-[600px] py-2 pb-6">
+                        <div className="w-full h-[600px]">
                             <Announcement />
                         </div>
                     </aside>
+                </div>
+                <section className="w-full my-[2rem]">
+                    <h2 className="text-[1.5rem] text-[#262626]"><span className="font-medium  text-[#00e170]">suasmilhas</span> recomenda</h2>
+                    <div className="w-full flex gap-[2rem] py-[2rem]">
+                        <div className="w-full">
+                            <Recommend />
+                        </div>
+                    </div>
+                </section>
+                <div className="w-full h-full pb-[1.5rem]">
+                    <Announcement />
                 </div>
             </main>
             <footer className="w-full bg-[#262626] pt-[3rem]">

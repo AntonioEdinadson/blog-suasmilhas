@@ -58,7 +58,7 @@ export const Quotes = () => {
 
     return (
         <div className="w-full bg-[#262626] py-2">
-            <div className="mSM:w-[95%] mmSD:w-[80%] w-[70%] max-w-[1680px] mx-auto flex items-center  justify-between gap-2 animate-pulse overflow-auto">
+            <div className="mmMD:w-[85%] mSM:w-[95%] mmSD:w-[80%] w-[70%] max-w-[1680px] mx-auto flex items-center  justify-between gap-2 animate-pulse overflow-auto">
                 <p className="text-[#00e170] font-medium">HOTMILHAS</p>
 
                 {data.hotmilhas.map((quote, index) => (

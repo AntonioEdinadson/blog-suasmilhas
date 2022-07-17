@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-    background-color: #FFF;
+    background-color: #f9f9f9;
 }
 
 * {
@@ -39,4 +39,10 @@ border-radius: 10px !important;
 .swiper-button-next, 
 .swiper-rtl {
 color: #00e170 !important;
+}
+
+.my-sticky {
+    position: sticky;
+    top: 0;
+    background-color: red;
 }

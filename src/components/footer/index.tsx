@@ -9,15 +9,15 @@ export const Footer = () => {
                 <div className="w-[200px]">
                     <Link to='/'><img src={logo} alt="logo-suasmilhas" /></Link>
                 </div>
-                <ul className="w-full flex justify-center gap-[2rem] font-medium text-white py-[1.5rem]">
+                <ul className="mSM:flex-col w-full flex justify-center gap-[2rem] font-medium text-white py-[1.5rem] text-center">
                     <Link to=""><li className="hover:text-[#00e170]">Envie sua Pergunta</li></Link>
                     <Link to=""><li className="hover:text-[#00e170]">Sobre Nós</li></Link>
                     <Link to=""><li className="hover:text-[#00e170]">Anuncie</li></Link>
                     <Link to=""><li className="hover:text-[#00e170]">Termos de Uso e Privacidade</li></Link>
                 </ul>
             </div>
-            <div className="w-full flex justify-center text-white py-[1.5rem] text-[.8rem]">
-                <p>@Copyrigth 2022 - suasmilhas.com, Todos os direitos reservados</p>
+            <div className="w-full flex justify-center text-white py-[1.5rem] text-[.8rem] text-center">
+                <p>@Copyrigth 2022 - <b className="text-[#00e170]">suasmilhas.com</b>, Todos os direitos reservados</p>
             </div>
         </div>
     );

@@ -28,7 +28,7 @@ export const Navbar = () => {
     return (
         <nav className="w-full h-[60px] border-b border-[#313131]">
             <section className="fixed w-full h-[60px] z-10 flex bg-[#262626]">
-                <div className="mSM:w-[95%] mmSD:w-[80%] w-[70%] flex items-center justify-between mx-auto">
+                <div className="mSM:w-[95%] mmMD:w-[85%] mmSD:w-[80%] w-[70%] max-w-[1680px] flex items-center justify-between mx-auto">
                     <div>
                         <div className="text-white flex items-center gap-2" onClick={() => setOpenNav(!openNav)} >
                             <IoMenu className="text-[1.8rem] cursor-pointer" />

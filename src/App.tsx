@@ -11,16 +11,14 @@ const App = () => {
     <div className="">
       <RouterList></RouterList>
 
-      {announcement &&
-        <div className="fixed bottom-0 w-[100%] h-[70px] flex justify-center z-50">
-          <section className="relative mSM:w-[85%] mmSD:w-[65%] w-[40%] bg-[#919191] opacity-80">
-            <Announcement />
-            <div className="absolute top-0 right-0 w-[15px] h-[15px] bg-black bg-opacity-40 mx-[-18px]">
-              <IoClose className="text-white cursor-pointer" />
-            </div>
-          </section>
-        </div>
-      }
+      <div className={`fixed bottom-0 w-[100%] h-[70px] flex justify-center z-50 transition-all duration-500 ease-in ${announcement ? 'translate-y-[0] mt-[5rem]' : 'translate-y-[200%]'}`}>
+        <section className="relative mSM:w-[85%] mmSD:w-[65%] w-[40%]">
+          <Announcement />
+          <div className="absolute top-0 right-0 w-[15px] h-[15px] bg-black bg-opacity-40 mx-[-18px]">
+            <IoClose className="text-white cursor-pointer" onClick={() => setAnnouncement(!announcement)} />
+          </div>
+        </section>
+      </div>
 
     </div>
   );
