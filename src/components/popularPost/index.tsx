@@ -8,7 +8,7 @@ export const PopularPost = ({ img, title }: IPost) => {
                 <Link to=""><img src={img} alt={title} className="w-full h-full object-cover hover:scale-125" /></Link>
             </div>
             <div className="mmSD:w-full mmMD:w-full w-[75%]">
-                <Link to=""><h2 className="mmSD:text-[1rem] mmSD:leading-[1rem] text-[1.2rem] leading-[1.2rem] text-[#262626] hover:text-[#00e170]">{title}</h2></Link>
+                <Link to=""><h2 className="mmSD:text-[1rem] mmSD:leading-[1rem] text-[1.1rem] leading-[1.1rem] text-[#262626] hover:text-[#00e170]">{title}</h2></Link>
             </div>
         </div>
     );
