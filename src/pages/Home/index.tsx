@@ -44,8 +44,7 @@ export const Home = () => {
 
     return (
         <div className="">
-            <Navbar />
-            <Quotes />
+            <Navbar />            
             <Header />
             <main className="mmMD:w-[85%] mSM:w-[95%] mmSD:w-[80%] max-w-[1680px]  w-[70%] mx-auto my-[2rem]">
                 <div className="w-full h-full border-b border-[#CECECE] pb-[1.5rem]">
