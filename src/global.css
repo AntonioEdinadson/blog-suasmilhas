@@ -14,7 +14,7 @@ body {
 }
 
 .swiper-wrapper {
-    overflow: visible;
+    overflow: visible;    
 }
 
 .swiper-pagination {
@@ -46,4 +46,12 @@ color: #00e170 !important;
     position: sticky;
     top: 0;
     background-color: red;
+}
+
+#cards .swiper-wrapper {
+    
+}
+
+#cards .swiper-slide {
+ 
 }

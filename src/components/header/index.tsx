@@ -37,7 +37,7 @@ export const Header = () => {
 
     return (
         <div className="w-full">
-            <div className="mmMD:w-[85%] max-w-[1680px] mSM:w-[95%] mmSD:w-[80%] w-[70%] mx-auto mt-[2rem] border-b pb-5 border-[#CECECE]">
+            <div className="mmMD:w-[85%] max-w-[1680px] mSM:w-[95%] mmSD:w-[80%] w-[70%] mx-auto mt-[4rem] border-b pb-5 border-[#CECECE]">
                 <div className="flex gap-10">
                     <Swiper
                         pagination={{ clickable: true }}
@@ -69,7 +69,7 @@ export const Header = () => {
                                                 </div>
                                                 <div className="w-[70%]">
                                                     <h2 className="text-[#02d96d] py-1  font-medium">{post.label}</h2>
-                                                    <Link to=""><h1 className="text-[1.2rem] leading-[1.4rem] text-[#262626] font-medium hover:text-[#02d96d]">{post.title}</h1></Link>                                                    
+                                                    <Link to=""><h1 className="text-[1.2rem] leading-[1.4rem] text-[#262626] font-medium hover:text-[#02d96d]">{post.title}</h1></Link>
                                                 </div>
                                             </div>
                                         </section>

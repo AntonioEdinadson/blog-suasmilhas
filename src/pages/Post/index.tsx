@@ -9,9 +9,9 @@ import { IPost } from "../../types/IPost";
 
 import { Announcement } from "../../components/announcement";
 import { Navbar } from "../../components/navbar";
-import { Quotes } from "../../components/quote";
 import { Recommend } from "../../components/recomend";
 import { Footer } from "../../components/footer";
+import { Cards } from "../../components/cards";
 
 const data = {
     title: "Aeroporto de Brasília inaugura loja com produtos de marca própria",
@@ -44,7 +44,7 @@ export const Post = () => {
 
     return (
         <div>
-            <Navbar />            
+            <Navbar />
             <div className="mmMD:w-[85%] mSM:w-[95%] mmSD:w-[80%] max-w-[1680px]  w-[70%] mx-auto my-[2rem]">
                 <header className="w-full">
                     <div className="w-full h-[250px]">
@@ -133,11 +133,19 @@ export const Post = () => {
                             <div className="w-full flex items-center gap-2">
                                 <h2 className="py-4">Categorias</h2>
                                 <div className="w-full flex gap-2 text-[#969696]">
-                                    {label.map((name) => (
-                                        <div className="border rounded px-2">{name}</div>
+                                    {label.map((name, index) => (
+                                        <div className="border rounded px-2" key={index}>{name}</div>
                                     ))}
                                 </div>
                             </div>
+                            <section className="w-full my-[2rem]">
+                                <div>
+                                    <h2 className="text-[1.5rem] text-[#262626]"><span className="font-medium  text-[#00e170]">melhores</span> cartões de crédito</h2>
+                                </div>
+                                <div className="w-full flex gap-[2rem] py-[1rem]">
+                                    <Cards />
+                                </div>
+                            </section>
                         </div>
 
                         <aside className="mmMD:w-[100%] mSM:w-full w-[30%] sticky top-0">

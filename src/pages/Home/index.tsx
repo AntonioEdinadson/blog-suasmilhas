@@ -56,19 +56,17 @@ export const Home = () => {
             <Navbar />
             <Header />
             <main className="mmMD:w-[85%] mSM:w-[95%] mmSD:w-[80%] max-w-[1680px]  w-[70%] mx-auto my-[2rem]">
-                <div className="w-full h-full border-b border-[#CECECE] pb-[1.5rem]">
-                    <Announcement />
-                </div>
                 <section className="w-full my-[2rem]">
                     <div>
-                        <h2 className="text-[1.5rem] text-[#262626]"><span className="font-medium  text-[#00e170]">melhores</span> cartões de crédito</h2>                        
+                        <h2 className="text-[1.5rem] text-[#262626]"><span className="font-medium  text-[#00e170]">melhores</span> cartões de crédito</h2>
                     </div>
-                    <div className="w-full flex gap-[2rem] py-[2rem]">
-                        <div className="w-full">
-                            <Cards />
-                        </div>
+                    <div className="w-full flex gap-[2rem] py-[1rem]">
+                        <Cards />
                     </div>
                 </section>
+                <div className="w-full h-[300px] pb-[3rem]">
+                    <Announcement />
+                </div>
                 <div className="mmMD:flex-col mSM:flex-col w-full flex items-start mmSD:gap-[1rem] gap-[2rem]">
                     <div className="mmMD:w-[100%] mSM:w-full w-[70%]">
                         <h2 className="text-[1.5rem] text-[#262626]"><span className="font-medium  text-[#00e170]">últimos</span> postagens</h2>
@@ -82,7 +80,7 @@ export const Home = () => {
                         </div>
                     </div>
                     <aside className="mmMD:w-[100%] mSM:w-full w-[30%] sticky top-0 flex flex-col justify-between">
-                        <div className="w-full h-[600px] pb-6">
+                        <div className="w-full h-[600px] py-6">
                             <Announcement />
                         </div>
                         <div className="w-full">
@@ -93,7 +91,7 @@ export const Home = () => {
                                 ))}
                             </div>
                         </div>
-                        <div className="w-full border-b border-[#CECECE] mb-4">
+                        <div className="w-full mb-4">
                             <h2 className="text-[1.5rem] text-[#262626]"><span className="font-medium  text-[#00e170]">acumule</span> pontos</h2>
                             <div className="w-full flex flex-col gap-[1.2rem] py-[2rem]">
                                 {accumulatePoints.slice(0, 8).map((post: IPost, index: number) => (
