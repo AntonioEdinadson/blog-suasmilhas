@@ -7,17 +7,20 @@ import { Header } from "../../components/header";
 import { Navbar } from "../../components/navbar";
 import { PopularPost } from "../../components/popularPost";
 import { Post } from "../../components/post";
-import { Quotes } from "../../components/quote";
 
 import { Recommend } from "../../components/recomend";
 import Services from "../../services/api";
 import { IPost } from "../../types/IPost";
 import { Link } from "react-router-dom";
 import { Footer } from "../../components/footer";
+import API from "../../services/api2";
+import { ICard } from "../../types/ICard";
+import { Cards } from "../../components/cards";
 
 export const Home = () => {
 
     const [posts, setPosts] = useState<IPost[]>([]);
+    const [cads, setCards] = useState<ICard[]>([]);
     const [popularPosts, setPopularPosts] = useState<IPost[]>([]);
     const [accumulatePoints, setAccumulatePoints] = useState<IPost[]>([]);
 
@@ -25,6 +28,7 @@ export const Home = () => {
         GetAllPosts();
         GetAllPopularPosts();
         GetAllAccumulatePointsPosts();
+        GetAllCards();
     }, []);
 
     const GetAllPosts = async () => {
@@ -42,19 +46,26 @@ export const Home = () => {
         setAccumulatePoints(data);
     }
 
+    const GetAllCards = async () => {
+        const data = await API.GetALLCards();
+        setCards(data);
+    }
+
     return (
         <div className="">
-            <Navbar />            
+            <Navbar />
             <Header />
             <main className="mmMD:w-[85%] mSM:w-[95%] mmSD:w-[80%] max-w-[1680px]  w-[70%] mx-auto my-[2rem]">
                 <div className="w-full h-full border-b border-[#CECECE] pb-[1.5rem]">
                     <Announcement />
                 </div>
                 <section className="w-full my-[2rem]">
-                    <h2 className="text-[1.5rem] text-[#262626]"><span className="font-medium  text-[#00e170]">suasmilhas</span> recomenda</h2>
+                    <div>
+                        <h2 className="text-[1.5rem] text-[#262626]"><span className="font-medium  text-[#00e170]">melhores</span> cartões de crédito</h2>                        
+                    </div>
                     <div className="w-full flex gap-[2rem] py-[2rem]">
                         <div className="w-full">
-                            <Recommend />
+                            <Cards />
                         </div>
                     </div>
                 </section>

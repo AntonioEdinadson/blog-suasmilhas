@@ -5,6 +5,7 @@ import { IoSearch, IoMenu } from 'react-icons/io5';
 import { FaFacebookSquare, FaYoutube, FaInstagram } from 'react-icons/fa';
 import logo from '/img/logo.png';
 import favicon from "/img/favicon.png";
+import { Quotes } from "../quote";
 
 export const Navbar = () => {
 
@@ -26,9 +27,9 @@ export const Navbar = () => {
     }
 
     return (
-        <nav className="w-full h-[60px] border-b border-[#313131]">
-            <section className="fixed w-full h-[60px] z-10 flex bg-[#262626]">
-                <div className="mSM:w-[95%] mmMD:w-[85%] mmSD:w-[80%] w-[70%] max-w-[1680px] flex items-center justify-between mx-auto">
+        <nav className="w-full h-[80px]">
+            <section className="fixed w-full h-[80px] z-10 flex flex-col bg-[#262626]">
+                <div className="mSM:w-[95%] mmMD:w-[85%] mmSD:w-[80%] w-[70%] max-w-[1680px]  h-[100%] flex items-center justify-between mx-auto py-2">
                     <div>
                         <div className="text-white flex items-center gap-2" onClick={() => setOpenNav(!openNav)} >
                             <IoMenu className="text-[1.8rem] cursor-pointer" />
@@ -38,7 +39,7 @@ export const Navbar = () => {
 
                     <div className="w-[200px] z-9999 mSM:w-[165px]">
                         <div>
-                            <Link to='/'><img src={logo} alt="logo-suasmilhas" /></Link>
+                            <Link to='/'><img src={logo} alt="logo-suasmilhas" className="p-2" /></Link>
                         </div>
                     </div>
 
@@ -47,6 +48,9 @@ export const Navbar = () => {
                             <IoSearch className="text-[1.5rem]" onClick={() => setOpenSearch(!openSearch)} />
                         </div>
                     </div>
+                </div>
+                <div className="bg-[#171717]">
+                    <Quotes />
                 </div>
             </section>
 
@@ -70,7 +74,7 @@ export const Navbar = () => {
             </section>
 
             <section className={`absolute z-30 w-full transition-all duration-200 ease-in ${openSearch ? 'translate-y-[0] mt-[5rem]' : 'translate-y-[-200%]'}`}>
-                <div id="search" className="w-[95%] mx-auto max-w-[800px] bg-[#4e4e4e] rounded-[50rem] flex items-center px-4">
+                <div id="search" className="w-[95%] mx-auto max-w-[800px] bg-[#262626] rounded-[50rem] flex items-center px-4">
                     <IoSearch className="text-[1.5rem] text-[#BBB]" />
                     <input
                         type="text"
