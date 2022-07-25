@@ -9,7 +9,7 @@ import { ICards } from "../../types/ICard";
 
 import API from "../../services/api2";
 
-import load from '../../../public/img/loading.svg'
+import load from '/img/loading.svg'
 
 export const Card = () => {
 

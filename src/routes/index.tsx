@@ -3,6 +3,7 @@ import { Post } from "../pages/Post";
 
 import { Home } from "../pages/Home";
 import { Card } from "../pages/Card";
+import { Vocabulary } from "../pages/Vocabulary";
 
 const RouterList = () => {
     return useRoutes([
@@ -19,6 +20,11 @@ const RouterList = () => {
         {
             path: '/cartoes',
             element: <Card />
+        },
+
+        {
+            path: '/vocabulario-milhas',
+            element: <Vocabulary />
         }
     ]);
 }

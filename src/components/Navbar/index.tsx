@@ -60,7 +60,7 @@ export const Navbar = () => {
                 <ul className="relative h-full flex flex-col gap-5 px-5 py-[5rem] text-[#BBB] text-[1.1rem]">                    
                     <li><a href="">Simulador</a></li>
                     <li><a href="/cartoes">Cartões de Crédito</a></li>
-                    <li><a href="">Vocabulário Milhas</a></li>                    
+                    <li><a href="/vocabulario-milhas">Vocabulário Milhas</a></li>                    
                     <li><a href="">Nosso Ebook</a></li>
                     <li><a href="">Faça sua pergunta</a></li>
                     <li><a href="">Controle de Milhas</a></li>
