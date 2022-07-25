@@ -12,6 +12,8 @@ import { Navbar } from "../../components/navbar";
 import { Recommend } from "../../components/recomend";
 import { Footer } from "../../components/footer";
 import { Cards } from "../../components/cards";
+import { ICard } from "../../types/ICard";
+import API from "../../services/api2";
 
 const data = {
     title: "Aeroporto de Brasília inaugura loja com produtos de marca própria",
@@ -26,11 +28,18 @@ export const Post = () => {
     const [post, setPost] = useState<IPost>();
 
     const [label, setLabel] = useState<string[]>([]);
+    const [cards, setCards] = useState<ICard[]>([]);
 
     useEffect(() => {
         GetPost();
+        GetCards();
         GetAllAccumulatePointsPosts();
     }, []);
+
+    const GetCards = async () => {
+        const data = await API.GetALLCards();
+        setCards(data.cartoes);
+    }
 
     const GetPost = async () => {
         setPost(data);
@@ -127,25 +136,23 @@ export const Post = () => {
                                     Se a companhia aérea que você voará, por acaso, fechar as portas, você estará protegido e seu bilhete será reembolsado pela Ciclic.
                                 </p>
                             </div>
-                            <div className="w-full mb-[2rem]">
-                                <Announcement />
-                            </div>
-                            <div className="w-full flex items-center gap-2">
-                                <h2 className="py-4">Categorias</h2>
+                            <div className="w-full flex items-center gap-2 pb-[2rem]">
+                                <h2>Categorias</h2>
                                 <div className="w-full flex gap-2 text-[#969696]">
                                     {label.map((name, index) => (
                                         <div className="border rounded px-2" key={index}>{name}</div>
                                     ))}
                                 </div>
                             </div>
-                            <section className="w-full my-[2rem]">
-                                <div>
-                                    <h2 className="text-[1.5rem] text-[#262626]"><span className="font-medium  text-[#00e170]">melhores</span> cartões de crédito</h2>
+                            <div className="w-full mb-[1rem]">
+                                <Announcement />
+                            </div>
+                            <div className="w-full flex flex-col gap-[1rem] py-[1rem]">
+                                <h2 className="text-[1.5rem] text-[#262626]"><span className="font-medium  text-[#00e170]">últimos</span> postagens</h2>
+                                <div className="w-full">
+                                    <Recommend />
                                 </div>
-                                <div className="w-full flex gap-[2rem] py-[1rem]">
-                                    <Cards />
-                                </div>
-                            </section>
+                            </div>
                         </div>
 
                         <aside className="mmMD:w-[100%] mSM:w-full w-[30%] sticky top-0">
@@ -163,14 +170,24 @@ export const Post = () => {
                             </div>
                         </aside>
                     </div>
+                    <section className="w-full mt-[2rem] flex flex-col justify-between">
+                        <div>
+                            <h2 className="text-[1.5rem] py-4 text-[#262626]"><span className="font-medium  text-[#00e170]">ranking</span> de cartões de crédito</h2>
+                        </div>
+                        <div className="w-full grid mMD:grid-cols-1 grid-cols-2 py-[1rem] gap-[1rem]">
+                            {cards.slice(0, 10).map((card, index) => (
+                                <Link to="">
+                                    <Cards posicao={index} icone={card.icone} nome={card.nome} key={index} />
+                                </Link>
+                            ))}
+                        </div>
+                        <div className="w-full text-center mt-4">
+                            <a href="/cartoes" className="text-white rounded p-2 block w-full bg-[#00e170] hover:bg-[#31f87d]">Acesse o ranking completo com os melhores cartões de crédito</a>
+                            <p className="text-[.6rem] flex justify-end py-1">fonte: MelhoresDestinos</p>
+                        </div>
+                    </section>
                     <div className="w-full h-[250px] mb-[2rem]">
                         <Announcement />
-                    </div>
-                    <div className="w-full flex flex-col gap-[1rem] py-[2rem]">
-                        <h2 className="text-[1.5rem] text-[#262626]"><span className="font-medium  text-[#00e170]">últimos</span> postagens</h2>
-                        <div className="w-full">
-                            <Recommend />
-                        </div>
                     </div>
                 </main>
             </div >

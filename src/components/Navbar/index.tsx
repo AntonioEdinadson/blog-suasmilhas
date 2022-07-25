@@ -39,7 +39,7 @@ export const Navbar = () => {
 
                     <div className="w-[200px] z-9999 mSM:w-[165px]">
                         <div>
-                            <Link to='/'><img src={logo} alt="logo-suasmilhas" className="p-2" /></Link>
+                            <a href='/'><img src={logo} alt="logo-suasmilhas" className="p-2" /></a>
                         </div>
                     </div>
 
@@ -57,12 +57,13 @@ export const Navbar = () => {
             < div className={`fixed w-full h-full top-0 z-20 bg-black bg-opacity-25  transition-opacity duration-[5s] ease-in  ${openNav || openSearch ? 'animate-menu-open-bg' : 'hidden'}`} onClick={closeNav}></div>
 
             <section id='menu' className={`fixed z-20 top-0 w-[350px] max-w-[75%] h-full bg-[#202020] transition-all duration-500 ease-in ${openNav ? 'translate-x-0' : 'translate-x-[-100%]'} `}>
-                <ul className="relative h-full flex flex-col gap-5 px-5 py-[5rem] text-[#BBB] text-[1.1rem]">
-                    <li><Link to="">Simulador de Compras</Link></li>
-                    <li><Link to="">Promoções</Link></li>
-                    <li><Link to="">Cartões de Crédito</Link></li>
-                    <li><Link to="">Programas de Fidelidade</Link></li>
-                    <li><Link to="">Faça sua pergunta</Link></li>
+                <ul className="relative h-full flex flex-col gap-5 px-5 py-[5rem] text-[#BBB] text-[1.1rem]">                    
+                    <li><a href="">Simulador</a></li>
+                    <li><a href="/cartoes">Cartões de Crédito</a></li>
+                    <li><a href="">Vocabulário Milhas</a></li>                    
+                    <li><a href="">Nosso Ebook</a></li>
+                    <li><a href="">Faça sua pergunta</a></li>
+                    <li><a href="">Controle de Milhas</a></li>
 
                     <li className="w-full absolute left-0 bottom-0 flex gap-3 items-center text-[#5a5a5a] text-[1.2rem] p-5">
                         <p>Compartilhe</p>

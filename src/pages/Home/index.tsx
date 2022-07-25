@@ -1,39 +1,45 @@
 import { useEffect, useState } from "react";
-import { Announcement } from "../../components/announcement";
+import { Link } from "react-router-dom";
 
 import { BsCircleFill } from 'react-icons/bs';
 
+import { Announcement } from "../../components/announcement";
 import { Header } from "../../components/header";
 import { Navbar } from "../../components/navbar";
 import { PopularPost } from "../../components/popularPost";
 import { Post } from "../../components/post";
-
 import { Recommend } from "../../components/recomend";
-import Services from "../../services/api";
-import { IPost } from "../../types/IPost";
-import { Link } from "react-router-dom";
 import { Footer } from "../../components/footer";
-import API from "../../services/api2";
-import { ICard } from "../../types/ICard";
 import { Cards } from "../../components/cards";
+
+import Services from "../../services/api";
+import API from "../../services/api2";
+
+import { IPost } from "../../types/IPost";
+import { ICard } from "../../types/ICard";
 
 export const Home = () => {
 
+    const [cards, setCards] = useState<ICard[]>([]);
     const [posts, setPosts] = useState<IPost[]>([]);
-    const [cads, setCards] = useState<ICard[]>([]);
     const [popularPosts, setPopularPosts] = useState<IPost[]>([]);
     const [accumulatePoints, setAccumulatePoints] = useState<IPost[]>([]);
 
     useEffect(() => {
+        GetCards();
         GetAllPosts();
         GetAllPopularPosts();
         GetAllAccumulatePointsPosts();
-        GetAllCards();
     }, []);
 
     const GetAllPosts = async () => {
         const data = await Services.GetPosts();
         setPopularPosts(data);
+    }
+
+    const GetCards = async () => {
+        const data = await API.GetALLCards();
+        setCards(data.cartoes);
     }
 
     const GetAllPopularPosts = async () => {
@@ -46,24 +52,11 @@ export const Home = () => {
         setAccumulatePoints(data);
     }
 
-    const GetAllCards = async () => {
-        const data = await API.GetALLCards();
-        setCards(data);
-    }
-
     return (
         <div className="">
             <Navbar />
             <Header />
             <main className="mmMD:w-[85%] mSM:w-[95%] mmSD:w-[80%] max-w-[1680px]  w-[70%] mx-auto my-[2rem]">
-                <section className="w-full my-[2rem]">
-                    <div>
-                        <h2 className="text-[1.5rem] text-[#262626]"><span className="font-medium  text-[#00e170]">melhores</span> cartões de crédito</h2>
-                    </div>
-                    <div className="w-full flex gap-[2rem] py-[1rem]">
-                        <Cards />
-                    </div>
-                </section>
                 <div className="w-full h-[300px] pb-[3rem]">
                     <Announcement />
                 </div>
@@ -78,6 +71,22 @@ export const Home = () => {
                         <div className="w-full flex justify-end">
                             <Link to="" className="w-full flex justify-center"><button className="w-full text-[#838383] px-10 py-2 border-2 rounded">ver mais postagens</button></Link>
                         </div>
+                        <section className="w-full mt-[2rem] flex flex-col justify-between">
+                            <div>
+                                <h2 className="text-[1.5rem] py-4 text-[#262626]"><span className="font-medium  text-[#00e170]">ranking</span> de cartões de crédito</h2>
+                            </div>
+                            <div className="w-full grid mMD:grid-cols-1 grid-cols-2 py-[1rem] gap-[1rem]">
+                                {cards.slice(0, 10).map((card, index) => (
+                                    <Link to="">
+                                        <Cards posicao={index} icone={card.icone} nome={card.nome} key={index} />
+                                    </Link>
+                                ))}
+                            </div>
+                            <div className="w-full text-center mt-4">
+                                <a href="/cartoes" className="text-white rounded p-2 block w-full bg-[#00e170] hover:bg-[#31f87d]">Acesse o ranking completo com os melhores cartões de crédito</a>
+                                <p className="text-[.6rem] flex justify-end py-1">fonte: MelhoresDestinos</p>
+                            </div>
+                        </section>
                     </div>
                     <aside className="mmMD:w-[100%] mSM:w-full w-[30%] sticky top-0 flex flex-col justify-between">
                         <div className="w-full h-[600px] py-6">

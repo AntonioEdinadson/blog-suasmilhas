@@ -2,6 +2,9 @@ export interface ICard {
     posicao: number;
     nome: string;
     icone: string;
+}
+
+export interface ICards extends ICard {
     pontos: string;
     salas: string;
     obs: string;

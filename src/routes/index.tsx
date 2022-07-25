@@ -2,7 +2,7 @@ import { useRoutes } from "react-router-dom";
 import { Post } from "../pages/Post";
 
 import { Home } from "../pages/Home";
-import { Simulator } from "../pages/simulator";
+import { Card } from "../pages/Card";
 
 const RouterList = () => {
     return useRoutes([
@@ -17,8 +17,8 @@ const RouterList = () => {
         },
 
         {
-            path: '/simulador-milheiro',
-            element: <Simulator />
+            path: '/cartoes',
+            element: <Card />
         }
     ]);
 }
