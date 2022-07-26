@@ -147,8 +147,12 @@ const Services = {
     },
 
     GetQuotes: () => {
-
-    },    
+        return [
+            {
+                name: ""
+            }
+        ];
+    },
 }
 
 export default Services;
