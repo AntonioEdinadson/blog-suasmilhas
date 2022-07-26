@@ -58,12 +58,11 @@ export const Navbar = () => {
 
             <section id='menu' className={`fixed z-20 top-0 w-[350px] max-w-[75%] h-full bg-[#202020] transition-all duration-500 ease-in ${openNav ? 'translate-x-0' : 'translate-x-[-100%]'} `}>
                 <ul className="relative h-full flex flex-col gap-5 px-5 py-[5rem] text-[#BBB] text-[1.1rem]">                    
-                    <li><a href="">Simulador</a></li>
+                    <li><a href="/simulador-milhas">Simulador</a></li>
                     <li><a href="/cartoes">Cartões de Crédito</a></li>
-                    <li><a href="/vocabulario-milhas">Vocabulário Milhas</a></li>                    
-                    <li><a href="">Nosso Ebook</a></li>
-                    <li><a href="">Faça sua pergunta</a></li>
+                    <li><a href="/vocabulario-milhas">Vocabulário Milhas</a></li>                                                            
                     <li><a href="">Controle de Milhas</a></li>
+                    <li><a href="">Mande sua pergunta</a></li>
 
                     <li className="w-full absolute left-0 bottom-0 flex gap-3 items-center text-[#5a5a5a] text-[1.2rem] p-5">
                         <p>Compartilhe</p>

@@ -6,6 +6,10 @@ body {
     background-color: #f9f9f9;
 }
 
+body #simulation {
+    background-color: #262626;
+}
+
 * {
     margin: 0;
     padding: 0;

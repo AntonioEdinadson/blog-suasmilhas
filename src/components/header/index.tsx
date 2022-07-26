@@ -9,6 +9,7 @@ import { Pagination, Autoplay, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import { IPost } from "../../types/IPost";
+import { Announcement } from "../announcement";
 
 const chunkPosts = (array: IPost[]) => {
     return array.reduce((acc: any, _, index) => {
@@ -38,6 +39,9 @@ export const Header = () => {
     return (
         <div className="w-full">
             <div className="mmMD:w-[85%] max-w-[1680px] mSM:w-[95%] mmSD:w-[80%] w-[70%] mx-auto mt-[4rem] border-b pb-5 border-[#CECECE]">
+                <div className="w-full h-[300px] pb-[3rem]">
+                    <Announcement />
+                </div>
                 <div className="flex gap-10">
                     <Swiper
                         pagination={{ clickable: true }}

@@ -4,6 +4,7 @@ import { Post } from "../pages/Post";
 import { Home } from "../pages/Home";
 import { Card } from "../pages/Card";
 import { Vocabulary } from "../pages/Vocabulary";
+import { Simulation } from "../pages/Simulation";
 
 const RouterList = () => {
     return useRoutes([
@@ -25,7 +26,12 @@ const RouterList = () => {
         {
             path: '/vocabulario-milhas',
             element: <Vocabulary />
-        }
+        },
+
+        {
+            path: '/simulador-milhas',
+            element: <Simulation />
+        }        
     ]);
 }
 

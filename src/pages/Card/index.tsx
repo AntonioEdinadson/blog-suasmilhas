@@ -56,7 +56,7 @@ export const Card = () => {
             <Navbar />
             <header>
                 <div className="mmMD:w-[85%] mSM:w-[95%] mmSD:w-[80%] max-w-[1680px]  w-[70%] mx-auto pt-[3rem]">
-                    <h1 className="text-[1.8rem] pt-4 font-semibold">Melhores Cartões de Crédito</h1>
+                    <h1 className="text-[#262626] text-[2rem] leading-[2rem] pt-4 font-bold">Melhores Cartões de Crédito</h1>
                     <h2 className="font-light">Os melhores cartões de crédito para acessat salas vip, viajar com milhas e obter seguros e beneficios de viagem.</h2>
                 </div>
             </header>

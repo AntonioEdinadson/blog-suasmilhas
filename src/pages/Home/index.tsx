@@ -56,10 +56,7 @@ export const Home = () => {
         <div className="">
             <Navbar />
             <Header />
-            <main className="mmMD:w-[85%] mSM:w-[95%] mmSD:w-[80%] max-w-[1680px]  w-[70%] mx-auto my-[2rem]">
-                <div className="w-full h-[300px] pb-[3rem]">
-                    <Announcement />
-                </div>
+            <main className="mmMD:w-[85%] mSM:w-[95%] mmSD:w-[80%] max-w-[1680px]  w-[70%] mx-auto my-[2rem]">                
                 <div className="mmMD:flex-col mSM:flex-col w-full flex items-start mmSD:gap-[1rem] gap-[2rem]">
                     <div className="mmMD:w-[100%] mSM:w-full w-[70%]">
                         <h2 className="text-[1.5rem] text-[#262626]"><span className="font-medium  text-[#00e170]">últimos</span> postagens</h2>

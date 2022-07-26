@@ -36,8 +36,8 @@ export const Vocabulary = () => {
             <Navbar />
             <header>
                 <div className="mmMD:w-[85%] mSM:w-[95%] mmSD:w-[80%] max-w-[1680px]  w-[70%] mx-auto pt-[3rem]">
-                    <h1 className="text-[1.8rem] pt-4 font-semibold">Vocabulário no mundo das milhas</h1>
-                    <h2 className="font-light">Os melhores cartões de crédito para acessat salas vip, viajar com milhas e obter seguros e beneficios de viagem.</h2>
+                    <h1 className="text-[#262626] text-[2rem] leading-[2rem] pt-4 font-bold">Vocabulário no mundo das milhas</h1>
+                    <h2 className="font-light py-2">Os melhores cartões de crédito para acessat salas vip, viajar com milhas e obter seguros e beneficios de viagem.</h2>
                 </div>
             </header>
             <div className="mmMD:w-[85%] mSM:w-[95%] mmSD:w-[80%] max-w-[1680px]  w-[70%] mx-auto my-[2rem]">
@@ -47,15 +47,16 @@ export const Vocabulary = () => {
                     </div>
                     <div className="mmMD:flex-col mSM:flex-col w-full flex items-start mmSD:gap-[1rem] gap-[2rem] my-[4rem]">
 
-                        <section className="mmMD:w-[100%] mSM:w-full w-[70%] flex flex-col gap-2 relative">
+                        <section className="mmMD:w-[100%] mSM:w-full mmSD:w-[65%] w-[70%] flex flex-col gap-2">
                             {vocabulary.map((item, index) => (
-                                <div className="mMM:flex-col w-full flex items-center  gap-4 bg-white mb-[2rem] p-[2rem] rounded" key={index}>
+                                <div className="mMM:flex-col w-full flex items-center  gap-4 bg-white mb-[2rem] p-[2rem] rounded relative overflow-hidden" key={index}>
                                     <div className="mMM:w-full w-[35%] mMM:border-none border-r mMM:p-0 pr-4 flex items-center justify-center gap-2">
                                         <h2 className="font-semibold text-[1.1rem]">{item.title}</h2>
                                     </div>
                                     <div className="mMM:w-full w-[65%] text-[.8rem]">
                                         <h3 className="text-[1rem]">{item.content}</h3>
                                     </div>
+                                    <div className="absolute top-0 left-0 bg-[#00e170] text-white px-4">{item.initials}</div>
                                 </div>
                             ))}
                             <div className="w-full h-[200px]">
@@ -63,7 +64,7 @@ export const Vocabulary = () => {
                             </div>
                         </section>
 
-                        <aside className="aside mmMD:w-[100%] mSM:w-full w-[30%] mXG:relative sticky top-0 flex flex-col justify-between gap-4 mb-[1rem] rounded">
+                        <aside className="aside mmMD:w-[100%] mSM:w-full mmSD:w-[35%] w-[30%] mXG:relative sticky top-0 flex flex-col justify-between gap-4 mb-[1rem] rounded">
                             <div className="w-full h-[300px]">
                                 <Announcement />
                             </div>
