@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { ICompanies } from '../types/ICompanies';
 
 const http = axios.create({
     baseURL: 'http://localhost:4000',
@@ -153,6 +154,39 @@ const Services = {
             }
         ];
     },
+
+    GetCompanies: () => {
+        return [
+            {
+                "id": 2,
+                "category_id": 1,
+                "category": "Platinum/Black",
+                "name": "LATAM PASS",
+                "points": [20, 700]
+            },
+            {
+                "id": 8,
+                "category_id": 2,
+                "category": "",
+                "name": "LATAM PASS",
+                "points": [20, 700],
+            },
+            {
+                "id": 1,
+                "category_id": 4,
+                "category": "",
+                "name": "SMILES",
+                "points": [20, 700],
+            },
+            {
+                "id": 3,
+                "category_id": 5,
+                "category": "",
+                "name": "TUDO AZUL",
+                "points": [12, 360],
+            }
+        ]
+    }
 }
 
 export default Services;

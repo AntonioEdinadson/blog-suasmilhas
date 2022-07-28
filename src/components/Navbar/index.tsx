@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import { useState } from "react";
 
 import { IoSearch, IoMenu } from 'react-icons/io5';
 import { FaFacebookSquare, FaYoutube, FaInstagram } from 'react-icons/fa';
