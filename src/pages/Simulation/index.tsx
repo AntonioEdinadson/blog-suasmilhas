@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import favicon from '/img/favicon.png';
 import logo from '/img/logo.png';
+import favicon from '/img/favicon.png';
 
 import { Post } from "../../components/post";
 import { Cards } from "../../components/cards";
@@ -10,18 +10,24 @@ import { Recommend } from "../../components/recomend";
 import { Announcement } from "../../components/announcement";
 
 import API from "../../services/api2";
+import Services from "../../services/api";
+
 import { ICard } from "../../types/ICard";
 import { IPost } from "../../types/IPost";
-import Services from "../../services/api";
 import { ICompanies } from "../../types/ICompanies";
+import { IQuote } from "../../types/IQuote";
 
 export const Simulation = () => {
 
     const [cards, setCards] = useState<ICard[]>([]);
     const [posts, setPosts] = useState<IPost[]>([]);
+
+    const [quoteResult, setQuoteResult] = useState<IQuote[]>([]);
     const [companies, setCompanies] = useState<ICompanies[]>([]);
-    const [quoteResult, setQuoteResult] = useState([]);
-    const [totalMiles, setTotalMiles] = useState<number[]>([]);
+
+    const [companyID, setCompanyID] = useState<number | null>(null);
+    const [quantity, setQuantity] = useState<number>(0);
+    const [limit, setLimit] = useState<number[] | null>(null);
 
     useEffect(() => {
         GetCards();
@@ -34,18 +40,50 @@ export const Simulation = () => {
         setPosts(data);
     }
 
-    const GetAllCompanies = async () => {
-        const data = await Services.GetCompanies();
-        setCompanies(data);
-    }
-
     const GetCards = async () => {
         const data = await API.GetALLCards();
         setCards(data.cartoes);
     }
 
-    const HandleQuantityChange = async (event: React.ChangeEvent<HTMLSelectElement>) => {
+    useEffect(() => {
+        CompanyChange();
+    }, [companyID]);
 
+    const GetAllCompanies = async () => {
+        const data = await Services.GetCompanies();
+
+        const newData = data.map((item) => {
+
+            const rangePoints: number[] = [];
+
+            for (let index = item.points[0]; index <= item.points[1]; index++) {
+                rangePoints.push(index);
+            }
+
+            return {
+                id: item.id,
+                category_id: item.category_id,
+                category: item.category,
+                name: item.name,
+                points: rangePoints,
+            }
+        });
+
+        setCompanies(newData);
+    }
+
+    const CompanyChange = async () => {
+        setLimit(null);
+        setQuantity(0);
+        setQuoteResult([]);
+        const newLimit = companies.filter(company => company.category_id === companyID);
+        setLimit(newLimit[0].points);
+    }
+
+    const handleSubmit = async (event: React.FormEvent) => {
+        event.preventDefault();
+        const data = await Services.GetQuote(companyID as number, quantity);
+        setQuoteResult(data);
     }
 
     return (
@@ -53,19 +91,19 @@ export const Simulation = () => {
             <header>
             </header>
             <div className="mmMD:w-[85%] mSM:w-[95%] mmSD:w-[80%] max-w-[1680px]  w-[70%] mx-auto">
-                <main className="w-full h-screen flex items-center justify-center">
+                <main className="w-full h-[95vh] flex items-center justify-center">
                     <div className="w-[55%] flex justify-center items-center flex-col">
-                        <img src={logo} alt="logo-suasmilhas" className="w-[350px] py-[2rem] animate-bounce" />
+                        <img src={logo} alt="logo-suasmilhas" className="w-[350px] py-[.5rem] animate-bounce" />
                         <div className="w-full flex flex-col justify-center items-center">
-                            <form action="" method="get" className="w-full">
+                            <form action="" method="get" className="w-full my-[1rem]" onSubmit={handleSubmit}>
                                 <div className="w-full flex gap-4 justify-center text-[#FFF]">
                                     <div className='bg-[#414141] rounded w-[50%] overflow-hidden'>
-                                        <select name=""
-                                            className="w-full bg-transparent p-[1rem] text-[1.5rem] leading-[1.5rem] text-[#FFF] bg-[#414141] outline-none"
-                                            onChange={HandleQuantityChange}>
+                                        <select name="company"
+                                            className="w-full bg-transparent p-[1rem] text-[1.2rem] leading-[1.2rem] text-[#FFF] bg-[#414141] outline-none"
+                                            onChange={(event) => setCompanyID(parseInt(event.target.value))}>
                                             <option value="">Selecione o programa</option>
                                             {companies.map((company: ICompanies, index) => (
-                                                <option                                                    
+                                                <option
                                                     value={company.category_id}
                                                     key={index}>{company.category
                                                         ? `${company.name} ${company.category}`
@@ -75,54 +113,48 @@ export const Simulation = () => {
                                         </select>
                                     </div>
                                     <div className='bg-[#414141] rounded w-[50%] overflow-hidden'>
-                                        <select name=""
-                                            className="w-full bg-transparent p-[1rem] text-[1.5rem] leading-[1.5rem] text-[#FFF] bg-[#414141] outline-none"
-                                            disabled={totalMiles.length > 0 ? false : true}>
-                                            <option value="">Quantidade de Milhas</option>
+                                        <select name="quantity"
+                                            className="w-full bg-transparent p-[1rem] text-[1.2rem] leading-[1.2rem] text-[#FFF] bg-[#414141] outline-none"
+                                            onChange={(event) => setQuantity(parseInt(event.target.value))}
+                                            disabled={companyID != null ? false : true}>
+                                            <option value="" selected >Quantidade de milhas</option>
+                                            {limit?.map((point, index) => (
+                                                <option
+                                                    value={point}
+                                                    key={index}
+                                                    selected={point == quantity ? true : false}>
+                                                    <b>{point}</b> Mil milhas
+                                                </option>
+                                            ))}
                                         </select>
                                     </div>
-                                    <button type="submit" className="block bg-[#00e170] px-4 text-[1.5rem] leading-[1.5rem] rounded hover:bg-[#02a754]">Calcular</button>
+                                    <button type="submit"
+                                        disabled={companyID == null || quantity <= 0 ? true : false}
+                                        className={`block  px-4 text-[1.5rem] leading-[1.5rem] rounded ${companyID != null && quantity > 0 ? 'bg-[#00e170] hover:bg-[#02a754]' : 'bg-[#149152]'}`}>
+                                        Calcular
+                                    </button>
                                 </div>
                             </form>
-                            {quoteResult &&
-                                <div className="w-full my-[2rem]  p-4 border rounded">
+                            {quoteResult.length > 0 &&
+                                <div className="w-full  p-4 border rounded">
                                     <div className="flex gap-4 justify-between font-semibold ">
-                                        <div className="w-[25%] bg-[#00e170] rounded-t relative">
-                                            <div>
-                                                <span className="p-2 rounded">60 dias</span>
-                                                <div className="absolute top-0 right-0 w-[20px] p-1">
-                                                    <img src={favicon} alt="" className="w-full" />
+                                        {quoteResult.map((quote) => (
+                                            <div className="w-[25%]">
+                                                <div className="bg-[#00e170] rounded-t relative text-center">
+                                                    <span className="p-2 rounded">{quote.days} dias</span>
+                                                    <div className="absolute top-0 right-0 w-[20px] p-1">
+                                                        <img src={favicon} alt="" className="w-full" />
+                                                    </div>
+                                                </div>
+                                                <div className="w-full bg-[#414141] rounded-b p-[1rem]">
+                                                    <span className="text-white text-[1.5rem]">{quote.value.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</span>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div className="w-[25%] bg-[#00e170] rounded-t relative">
-                                            <div>
-                                                <span className="p-2 rounded">45 dias</span>
-                                                <div className="absolute top-0 right-0 w-[20px] p-1">
-                                                    <img src={favicon} alt="" className="w-full" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="w-[25%] bg-[#00e170] rounded-t relative">
-                                            <div>
-                                                <span className="p-2 rounded">30 dias</span>
-                                                <div className="absolute top-0 right-0 w-[20px] p-1">
-                                                    <img src={favicon} alt="" className="w-full" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="w-[25%] bg-[#00e170] rounded-t relative">
-                                            <div>
-                                                <span className="p-2 rounded">1 dia</span>
-                                                <div className="absolute top-0 right-0 w-[20px] p-1">
-                                                    <img src={favicon} alt="" className="w-full" />
-                                                </div>
-                                            </div>
-                                        </div>
+                                        ))}
                                     </div>
                                 </div>
                             }
-                            <div className="w-full mx-auto h-[80px]">
+                            <div className="w-full mx-auto h-[80px] mt-[1rem]">
                                 <Announcement />
                             </div>
                         </div>
@@ -170,7 +202,7 @@ export const Simulation = () => {
                         <p className="text-[.6rem] flex justify-end py-1">fonte: MelhoresDestinos</p>
                     </div>
                 </section>
-            </div>
+            </div >
             <footer className="w-full bg-[#262626] pt-[3rem]">
                 <div className="mSM:w-[95%] mmSD:w-[80%] w-[70%] mx-auto">
                     <div className="w-full flex justify-center text-white py-[1.5rem] text-[.8rem] text-center">
@@ -178,6 +210,6 @@ export const Simulation = () => {
                     </div>
                 </div>
             </footer>
-        </div>
+        </div >
     );
 }

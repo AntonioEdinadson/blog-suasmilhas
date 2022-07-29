@@ -186,7 +186,29 @@ const Services = {
                 "points": [12, 360],
             }
         ]
+    },
+
+    GetQuote: (id: number, quantity: number) => {
+        return [
+            {
+                days: 1,
+                value: 340,
+            },
+            {
+                days: 30,
+                value: 395.01,
+            },
+            {
+                days: 45,
+                value: 416.02
+            },
+            {
+                days: 60,
+                value: 450.05,
+            },
+        ]
     }
+
 }
 
 export default Services;
