@@ -2,7 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import logo from '/img/logo.png';
-import favicon from '/img/favicon.png';
+import eloading from '/img/eloading.svg';
+
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Autoplay, Navigation, Pagination } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 import { Post } from "../../components/post";
 import { Cards } from "../../components/cards";
@@ -16,6 +22,7 @@ import { ICard } from "../../types/ICard";
 import { IPost } from "../../types/IPost";
 import { ICompanies } from "../../types/ICompanies";
 import { IQuote } from "../../types/IQuote";
+import { QuoteResult } from "../../components/quote-result";
 
 export const Simulation = () => {
 
@@ -28,6 +35,7 @@ export const Simulation = () => {
     const [companyID, setCompanyID] = useState<number | null>(null);
     const [quantity, setQuantity] = useState<number>(0);
     const [limit, setLimit] = useState<number[] | null>(null);
+    const [btnStatus, setBtnStatus] = useState<boolean>(false);
 
     useEffect(() => {
         GetCards();
@@ -81,9 +89,17 @@ export const Simulation = () => {
     }
 
     const handleSubmit = async (event: React.FormEvent) => {
+        setQuoteResult([]);
         event.preventDefault();
+        setBtnStatus(true);
+
         const data = await Services.GetQuote(companyID as number, quantity);
-        setQuoteResult(data);
+
+        setTimeout(() => {
+            setQuoteResult(data);
+            setBtnStatus(false);
+        }, 2000);
+
     }
 
     return (
@@ -92,12 +108,12 @@ export const Simulation = () => {
             </header>
             <div className="mmMD:w-[85%] mSM:w-[95%] mmSD:w-[80%] max-w-[1680px]  w-[70%] mx-auto">
                 <main className="w-full h-[95vh] flex items-center justify-center">
-                    <div className="w-[55%] flex justify-center items-center flex-col">
-                        <img src={logo} alt="logo-suasmilhas" className="w-[350px] py-[.5rem] animate-bounce" />
+                    <div className="mmSD:w-[75%] mMM:w-[90%] mSM:w-[80%] mMD:w-[80%] w-[60%] flex justify-center items-center flex-col">
+                        <Link to="/"><img src={logo} alt="logo-suasmilhas" className="w-[350px] py-[.5rem] animate-bounce" /></Link>
                         <div className="w-full flex flex-col justify-center items-center">
                             <form action="" method="get" className="w-full my-[1rem]" onSubmit={handleSubmit}>
-                                <div className="w-full flex gap-4 justify-center text-[#FFF]">
-                                    <div className='bg-[#414141] rounded w-[50%] overflow-hidden'>
+                                <div className="mSM:flex-col w-full flex gap-4 justify-center text-[#FFF]">
+                                    <div className='mSM:w-full bg-[#414141] rounded w-[40%] overflow-hidden'>
                                         <select name="company"
                                             className="w-full bg-transparent p-[1rem] text-[1.2rem] leading-[1.2rem] text-[#FFF] bg-[#414141] outline-none"
                                             onChange={(event) => setCompanyID(parseInt(event.target.value))}>
@@ -112,7 +128,7 @@ export const Simulation = () => {
                                             ))}
                                         </select>
                                     </div>
-                                    <div className='bg-[#414141] rounded w-[50%] overflow-hidden'>
+                                    <div className='mSM:w-full bg-[#414141] rounded w-[40%] overflow-hidden'>
                                         <select name="quantity"
                                             className="w-full bg-transparent p-[1rem] text-[1.2rem] leading-[1.2rem] text-[#FFF] bg-[#414141] outline-none"
                                             onChange={(event) => setQuantity(parseInt(event.target.value))}
@@ -130,28 +146,48 @@ export const Simulation = () => {
                                     </div>
                                     <button type="submit"
                                         disabled={companyID == null || quantity <= 0 ? true : false}
-                                        className={`block  px-4 text-[1.5rem] leading-[1.5rem] rounded ${companyID != null && quantity > 0 ? 'bg-[#00e170] hover:bg-[#02a754]' : 'bg-[#149152]'}`}>
-                                        Calcular
+                                        className={`mSM:w-full block  px-4 text-[1.5rem] leading-[1.5rem] rounded ${companyID != null && quantity > 0 ? 'bg-[#00e170] hover:bg-[#02a754]' : 'bg-[#149152]'}`}>
+                                        {btnStatus
+                                            ?
+                                            <div className="w-full flex items-center justify-center px-4">
+                                                <p>calculando</p>
+                                                <img src={eloading} alt="" className="w-[50px] p-1" />
+                                            </div>
+                                            :
+                                            <div className="p-[1rem]">
+                                                Calcular
+                                            </div>
+                                        }
                                     </button>
                                 </div>
                             </form>
                             {quoteResult.length > 0 &&
-                                <div className="w-full  p-4 border rounded">
-                                    <div className="flex gap-4 justify-between font-semibold ">
-                                        {quoteResult.map((quote) => (
-                                            <div className="w-[25%]">
-                                                <div className="bg-[#00e170] rounded-t relative text-center">
-                                                    <span className="p-2 rounded">{quote.days} dias</span>
-                                                    <div className="absolute top-0 right-0 w-[20px] p-1">
-                                                        <img src={favicon} alt="" className="w-full" />
-                                                    </div>
-                                                </div>
-                                                <div className="w-full bg-[#414141] rounded-b p-[1rem]">
-                                                    <span className="text-white text-[1.5rem]">{quote.value.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</span>
-                                                </div>
-                                            </div>
+                                <div className="w-full">
+                                    <Swiper
+                                        pagination={{ clickable: true }}
+                                        spaceBetween={30}
+                                        breakpoints={{
+                                            320: {
+                                                slidesPerView: 1,
+                                                spaceBetween: 20,
+                                            },
+                                            640: {
+                                                slidesPerView: 2,
+                                                spaceBetween: 20,
+                                            },
+                                            1024: {
+                                                slidesPerView: 4,
+                                                spaceBetween: 20,
+                                            },
+                                        }}
+                                        modules={[Pagination]}
+                                        className="mySwiper">
+                                        {quoteResult.map((quote, index) => (
+                                            <SwiperSlide key={index}>
+                                                <QuoteResult days={quote.days} value={quote.value} />
+                                            </SwiperSlide>
                                         ))}
-                                    </div>
+                                    </Swiper>
                                 </div>
                             }
                             <div className="w-full mx-auto h-[80px] mt-[1rem]">

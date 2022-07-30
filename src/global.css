@@ -71,3 +71,13 @@ color: #00e170 !important;
 #post h2 {
     color: #19d570;
 }
+
+#simulation .swiper-pagination-bullet {
+    background-color: #00e170;
+}
+
+#simulation .swiper-pagination-bullet-active {
+width: 15px !important;
+border-radius: 10px !important;
+background-color: #00e170;
+}

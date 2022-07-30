@@ -58,7 +58,7 @@ export const Navbar = () => {
 
             <section id='menu' className={`fixed z-20 top-0 w-[350px] max-w-[75%] h-full bg-[#202020] transition-all duration-500 ease-in ${openNav ? 'translate-x-0' : 'translate-x-[-100%]'} `}>
                 <ul className="relative h-full flex flex-col gap-5 px-5 py-[5rem] text-[#BBB] text-[1.1rem]">                    
-                    <li><a href="/simulador-milhas">Simulador</a></li>
+                    <li><a href="/simulador-milhas">Calculadora Milhas</a></li>
                     <li><a href="/cartoes">Cartões de Crédito</a></li>
                     <li><a href="/vocabulario-milhas">Vocabulário Milhas</a></li>                                                            
                     <li><a href="">Controle de Milhas</a></li>
